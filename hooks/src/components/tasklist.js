@@ -25,6 +25,10 @@ const TaskList = () => {
     ));
   };
 
+  const clearTasks = () => {
+    setTasks([]);
+  };
+
   return (
     <div>
       <div className='buttons'>
@@ -45,7 +49,10 @@ const TaskList = () => {
           onChange={(e) => setTitle(e.target.value)}
           required
         />
-        <button type="submit">Adicionar Tarefa</button>
+        <button style={{marginLeft: '20px'}} type="submit">Adicionar Tarefa</button>
+        <button onClick={clearTasks} style={{ marginLeft: '20px', }}>
+          Limpar Tarefas
+        </button>
       </form>
       <div>
         {tasks.map((task) => (
@@ -57,6 +64,8 @@ const TaskList = () => {
           />
         ))}
       </div>
+
+
     </div>
   );
 };
